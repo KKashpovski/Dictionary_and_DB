@@ -1,0 +1,18 @@
+// Товары
+Table goods as G {
+  id int [pk, not null, increment, note: 'уникальный идентификатор товара']
+  name varchar [not null, note: 'наименование товара']
+  package_height float [not null, note: 'высота упакованного товара']
+  package_width float [not null, note: 'ширина упакованного товара']
+}
+
+// Распределение товара по магазинам
+Table shops_goods as S{
+  id int [pk, not null, increment, note: 'идентификатор записи']
+  id_good int [not null, note: 'идентификатор товара']
+  location varchar [not null, note: 'адрес магазина']
+  amount int [not null, note: 'количество этого товара в этом магазине']
+  
+}
+
+Ref: "G"."id" - "S"."id_good"
