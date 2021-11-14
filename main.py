@@ -33,8 +33,6 @@ def validate_json() -> Any:
         return True
     except jsonschema.exceptions.ValidationError:
         print("Данные JSON недопустимы. \n")
-    except json.decoder.JSONDecodeError:
-        print("Данные JSON недопустимы. \n")
 
 
 def convert() -> dict:
